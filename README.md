@@ -9,11 +9,7 @@ Requires Python 3.11+.
 ```bash
 git clone https://github.com/financialwizard1991/ml-template.git
 cd ml-template
-python3.11 -m venv .venv
-source .venv/bin/activate
-python -m pip install -e ".[dev]"
-pre-commit install
-```
+make setup && make test
 
 ## Usage
 

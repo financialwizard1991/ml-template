@@ -1,7 +1,8 @@
-.PHONY: test lint format docker
+.PHONY: test lint format docker setup
+
 
 test:
-	pytest -q
+	.venv/bin/pytest -q
 
 lint:
 	ruff check src tests
@@ -10,6 +11,11 @@ lint:
 format:
 	ruff check --fix src tests
 	black src tests
+
+setup:
+	python3.11 -m venv .venv
+	.venv/bin/python -m pip install -e ".[dev]"
+	.venv/bin/pre-commit install
 
 docker:
 	docker build -t ml-template .
